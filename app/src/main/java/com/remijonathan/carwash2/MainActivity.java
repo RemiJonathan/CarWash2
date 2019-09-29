@@ -2,6 +2,7 @@ package com.remijonathan.carwash2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.icu.text.NumberFormat;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton outWash;
     private RadioButton inWash;
     private Button calculatePrice;
-    private TextView totalPrice;
 
     private Wash wash;
 
@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         outWash = findViewById(R.id.outside_wash);
         inWash = findViewById(R.id.inside_out_wash);
         calculatePrice = findViewById(R.id.calculate_price);
-        totalPrice = findViewById(R.id.total_price);
 
         wash = new Wash();
 
@@ -61,7 +60,11 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-
+    /**
+     * Send the User to the WashPrice activity when called
+     * else
+     * emptyNumberException() is called when number is empty
+     */
     private void calculatePrice() {
 
         //Validate that a value is in amount
@@ -71,7 +74,13 @@ public class MainActivity extends AppCompatActivity {
             wash.setAmount(amount);
 
             String price = NumberFormat.getCurrencyInstance().format(wash.getTotalPrice());
-            totalPrice.setText(price);
+
+            //Send the User to the Wash Price Activity
+            Intent intent = new Intent(MainActivity.this, WashPrice.class);
+            intent.putExtra("Price",price);
+            startActivity(intent);
+
+            //totalPrice.setText(price);
         } else emptyNumberException();
     }
 
