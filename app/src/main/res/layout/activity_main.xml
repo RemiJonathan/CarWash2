@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient_background"
+    >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="64sp"
+        android:text="@string/title"
+        android:textColor="@color/textColor"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:paddingTop="32sp"
+        android:text="@string/discount"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:layout_below="@+id/title"
+        />
+    <!--Takes a number for the amount of washes wanted-->
+    <EditText
+        android:id="@+id/washes_wanted"
+        android:hint="@string/enter_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subtitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="16sp"
+        android:layout_marginEnd="16sp"
+        android:layout_marginBottom="16sp"
+        android:autofillHints=""
+        android:inputType="number"
+        android:backgroundTint="@color/UITint"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/hintColor"
+        />
+
+    <RadioGroup
+        android:id="@+id/wash_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/washes_wanted"
+        >
+
+        <RadioButton
+
+            android:id="@+id/outside_wash"
+            android:buttonTint="@color/UITint"
+            android:textColor="@color/textColor"
+
+            android:text="@string/outside"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:textSize="24sp"/>
+
+        <RadioButton
+            android:id="@+id/inside_out_wash"
+            android:buttonTint="@color/UITint"
+            android:textColor="@color/textColor"
+
+            android:text="@string/inside_out"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:textSize="24sp"
+
+            android:checked="true"
+            />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/calculate_price"
+        android:text="@string/button_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/wash_group"
+        android:layout_marginTop="32sp"/>
+
+    <TextView
+        android:id="@+id/total_price"
+        android:layout_below="@id/calculate_price"
+        android:textSize="32sp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor"/>
+
+    <ImageView
+        android:contentDescription="@string/brushes"
+        android:paddingTop="64sp"
+        android:layout_below="@id/calculate_price"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/carwash" />
+
+
+</RelativeLayout>
